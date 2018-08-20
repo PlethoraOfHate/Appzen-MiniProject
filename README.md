@@ -24,6 +24,15 @@ git clone https://github.com/PlethoraOfHate/Appzen-MiniProject.git
 
 3. Ensure your .pem file for the AWS access key pair is in the `secrets` directory
 
+4. Edit the 'terraform/modules/webserver/webserver.tf` file to include the IP address or block you will connect to the instance from
+```ingress {
+    from_port = 22
+    to_port = 22
+    protocol = "tcp"
+    cidr_blocks = ["nnn.nnn.nnn.nnn/nn"]
+  }
+```
+
 ## Build the webserver
 The `appzen-deploy.sh` script will execute the commands to build and test the webserver.
 
